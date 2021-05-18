@@ -1,4 +1,6 @@
-import pygame, random
+import pygame, random, help, credits, juego
+
+
 
 # estrellas
 coor_list = []
@@ -68,15 +70,19 @@ class text:
 
 # call back functions
 def fn1():
-    print('click')
+    juego.init()
+    pygame.quit()
 def fn2():
-    print('the player needs help')
+    help.init()
+    pygame.quit()
 def fn3():
-    print ("Goodbye")
+    pygame.quit()
 def fn4():
     print ("welcome to the game")
 def fn5():
-    print ("info. creadores")
+    credits.init()
+    pygame.quit()
+
 
 
 
@@ -91,18 +97,18 @@ if __name__ == '__main__':
     font        = pygame.font.Font(None, font_size)
     clock       = pygame.time.Clock()
 
-    screen    = pygame.display.set_mode(screen_size)
+    screen      = pygame.display.set_mode(screen_size)
 
 
 
 
     button1 = button(position=(750, 800/2), size=(140, 45), clr=(255, 255, 255), cngclr=(255, 255, 0), func=fn1, text='Play', font = "segoeprint", font_size=35, font_clr = (0, 0, 0))
     button2 = button((750, 1050/2), (140, 45), (255, 255, 255), (255, 255, 0), fn2, 'Help', font = "segoeprint", font_size=35, font_clr = (0, 0, 0))
-    button3 = button((750, 1300/2), (140, 45), (255, 255, 255), (255, 255, 0), fn3, 'Exit', font = "segoeprint", font_size=35, font_clr = (0, 0, 0))
-    button4 = button((750, 1550 / 2), (140, 45), (255, 255, 255), (255, 255, 0), fn5, 'Credits', font="segoeprint", font_size=35,font_clr=(0, 0, 0))
+    button3 = button((750, 1300 / 2), (140, 45), (255, 255, 255), (255, 255, 0), fn5, 'Credits', font="segoeprint", font_size=35,font_clr=(0, 0, 0))
+    button4 = button((750, 1550/2), (140, 45), (255, 255, 255), (255, 255, 0), fn3, 'Exit', font = "segoeprint", font_size=35, font_clr = (0, 0, 0))
     Title = button((750, 160), (1500, 80), (0, 0, 0), (0, 0, 0), fn4, 'Going thought the shadow', font = "sourcecodeproblack", font_size=72, font_clr = (255, 255, 0))
 
-    button_list = [button1, button2, button3, button4, Title]
+    button_list = [button1, button2, button4, button3, Title]
 
 
 crash = True
@@ -120,6 +126,7 @@ while crash:
                 for b in button_list:
                     if b.rect.collidepoint(pos):
                         b.call_back()
+
 
     screen.fill(black)
 
