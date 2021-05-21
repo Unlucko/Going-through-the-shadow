@@ -118,20 +118,6 @@ def init():
                 if self.func:
                     return self.func(*args)
 
-        class text:
-            def __init__(self, msg, position, clr=[100, 100, 100], font="Segoe Print", font_size=15, mid=False):
-                self.position = position
-                self.font = pygame.font.SysFont(font, font_size)
-                self.txt_surf = self.font.render(msg, 1, clr)
-
-                if len(clr) == 4:
-                    self.txt_surf.set_alpha(clr[3])
-
-                if mid:
-                    self.position = self.txt_surf.get_rect(center=position)
-
-            def draw(self, screen):
-                screen.blit(self.txt_surf, self.position)
 
         # call back funciones
         def fn1():
@@ -164,7 +150,7 @@ def init():
 
         screen = pygame.display.set_mode(screen_size)
 
-        pygame.mixer.music.load("hylt.wav")
+        pygame.mixer.music.load("fondo_sound.wav")
         pygame.mixer.music.play(2)
 
         button1 = button(position=(750, 800 / 2), size=(140, 45), clr=(255, 255, 255), cngclr=(255, 255, 0),
