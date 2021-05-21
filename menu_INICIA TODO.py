@@ -103,7 +103,7 @@ def init ():
 
     screen      = pygame.display.set_mode(screen_size)
 
-    pygame.mixer.music.load("hylt.wav")
+    pygame.mixer.music.load("fondo_sound.wav")
     pygame.mixer.music.play(2)
 
     button1 = button(position=(750, 800/2), size=(140, 45), clr=(255, 255, 255), cngclr=(255, 255, 0), func=fn1, text='Play', font = "segoeprint", font_size=35, font_clr = (0, 0, 0))
