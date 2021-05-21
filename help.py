@@ -100,8 +100,7 @@ def init():
                 self.surf.blit(self.txt_surf, self.txt_rect)
                 screen.blit(self.surf, self.rect)
 
-            def mouseover(
-                    self):  # para saber la ubicación del mouse y así el botón pueda cambiar de color cuando el mouse esté ensima de el
+            def mouseover(self):  # para saber la ubicación del mouse y así el botón pueda cambiar de color cuando el mouse esté ensima de el
                 self.curclr = self.clr
                 pos = pygame.mouse.get_pos()
                 if self.rect.collidepoint(pos):
